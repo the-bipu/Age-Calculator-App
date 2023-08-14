@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    height: 100vh;
+
+    display: grid;
+    place-content: center;
+
+    background: hsl(0, 0%, 94%);
+}
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+    visibility: hidden;
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: auto;
+
+    background: hsl(0, 10%, 100%);
+
+    border-radius: 20px;
+    border-bottom-right-radius: 25%;
+}
+
+.con1-div1 {
+    width: auto;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 1.7rem;
+
+    border: none;
+    border-bottom: 1px solid grey;
+
+    margin: 2rem;
+    margin-right: 3rem;
+    margin-bottom: 1rem;
+}
+
+.con1-div2 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    font-style: italic;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+.con1-div1-1,
+.con1-div1-2,
+.con1-div1-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    margin-bottom: 2.3rem;
+}
+
+.con1-div1-4 {
+    width: 5rem;
+    height: 5rem;
+
+    background: url(./assets/images/icon-arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: hsl(259, 100%, 65%);
+    border-radius: 50%;
+    border: 2px solid hsl(259, 100%, 65%);
+
+    margin-left: 2rem;
+    margin-bottom: -7rem;
+}
+
+.input--1,
+.input--2,
+.input--3 {
+    width: 7.5rem;
+    height: 3.4rem;
+
+    border-radius: 4px;
+    border: 1px solid gray;
+
+    padding: 1rem;
+    outline: none;
+}
+
+::placeholder {
+    font-size: 1rem;
+}
+
+.span-1,
+.span-2,
+.span-3  {
+    color: hsl(259, 100%, 65%);
+}
+
+.con1-div1-1-1,
+.con1-div1-2-1,
+.con1-div1-3-1 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: hsl(0, 1%, 44%);
+
+    margin-bottom: .5rem;
+}

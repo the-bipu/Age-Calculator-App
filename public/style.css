@@ -102,6 +102,10 @@ body {
 .input--1,
 .input--2,
 .input--3 {
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+
     width: 7.5rem;
     height: 3.4rem;
 
@@ -114,6 +118,7 @@ body {
 
 ::placeholder {
     font-size: 1rem;
+    font-weight: 400;
 }
 
 .span-1,

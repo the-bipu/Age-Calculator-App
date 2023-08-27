@@ -121,3 +121,70 @@ Use this section to outline areas that you want to continue focusing on in futur
 This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
 
 **Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+
+```
+let isValidYear = true;
+let isValidMonth = true;
+let isValidDay = true;
+let dateIsValid = true;
+
+function isValidDate(year, month, day) {
+    const inputDate = new Date(year, month - 1, day);
+
+    // Check if the input components match the created date and if it's a valid date
+    return (
+        inputDate.getFullYear() === year &&
+        inputDate.getMonth() === month - 1 &&
+        inputDate.getDate() === day &&
+        !isNaN(inputDate)
+    );
+}
+
+
+
+
+
+        const year = birthDate[2];
+        const month = birthDate[1];
+        const day = birthDate[0];
+
+        if (birthDate[2] > currentYear) {
+            isValidYear = false;
+            console.log("Invalid birth year (in the future)");
+            console.log(isValidYear);
+        } else {
+            isValidYear = true;
+        }
+
+        if (birthDate[1] > 12 || birthDate[1] < 1) {
+            isValidMonth = false;
+            console.log("Invalid birth month");
+            console.log(isValidMonth);
+        } else {
+            isValidMonth = true;
+        }
+
+        if (birthDate[0] > 31 || birthDate[0] < 1) {
+            isValidDay = false;
+            console.log("Invalid birth day");
+            console.log(isValidDay);
+        } else {
+            isValidDay = true;
+        }
+
+        if (isValidDate(year, month, day)) {
+            dateIsValid = true;
+            console.log("Date is valid.");
+        } else {
+            dateIsValid = false;
+            console.log("Date is invalid.");
+        }
+
+        if(isValidDay && isValidMonth && isValidYear){
+            if(dateIsValid){
+                setNewDays(calculatedDay);
+                setNewMonths(calculatedMonth);
+                setNewYears(calculatedYear);
+            }
+        }
+```

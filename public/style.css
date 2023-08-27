@@ -139,3 +139,47 @@ body {
 
     margin-bottom: .5rem;
 }
+
+.con1-div1-1-3 {
+    display: none;
+
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 400;
+    font-style: italic;
+    color: hsl(0, 100%, 67%);
+}
+
+.con1-div1-1-4 {
+    display: none;
+
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 400;
+    font-style: italic;
+    color: hsl(0, 100%, 67%);
+}
+
+.con1-div1-1-3.warning {
+    display: block;
+}
+
+.warningDate {
+    border: 1px solid hsl(0, 100%, 67%);
+}
+
+.container-spacing {
+    margin-bottom: 1.5rem;
+}
+
+.container-4-spacing {
+    margin-bottom: -7.6rem;
+}
+
+.con1-div1-spacing {
+    color: hsl(0, 100%, 67%);
+}
+
+.con1-div1-1-4.empty-fields {
+    display: block;
+}

@@ -32,6 +32,11 @@ function findAge(currentDate, birthDate) {
 
 export default function Main() {
 
+    // For checking empty fields
+    const [isEmptyDate, setIsEmptyDate] = React.useState(false);
+    const [isEmptyMonth, setIsEmptyMonth] = React.useState(false);
+    const [isEmptyYear, setIsEmptyYear] = React.useState(false);
+
     // State for input values
     const [days, setDays] = React.useState('--');
     const [months, setMonths] = React.useState('--');
@@ -96,9 +101,19 @@ export default function Main() {
 
     const handleClick = () => {
 
-        if(dateFull.trim()==="" || monthFull.trim()==="" || yearFull.trim()===""){
-            console.log("This is empty!");
-        } else {
+        if(dateFull.trim()===""){
+            setIsEmptyDate(dateFull.trim() === "");
+        } 
+        
+        if (monthFull.trim()===""){
+            setIsEmptyMonth(monthFull.trim() == "");
+        } 
+        
+        if (yearFull.trim()===""){
+            setIsEmptyYear(yearFull.trim() === "");
+        } 
+        
+        if(dateFull.trim()!="" && monthFull.trim()!="" && yearFull.trim()!=""){
             let birthDate = [parseInt(days), parseInt(months), parseInt(years)];
 
             const [calculatedDay, calculatedMonth, calculatedYear] = findAge(
@@ -111,8 +126,8 @@ export default function Main() {
                 setNewMonths(calculatedMonth);
                 setNewYears(calculatedYear);
             }
-
         }
+
     };
 
     return (
@@ -121,38 +136,44 @@ export default function Main() {
 
                 <div className="con1-div1">
                     <div className={`con1-div1-1 ${!isValidDate ? "container-spacing" : ""}`}>
-                        <div className={`con1-div1-1-1 ${!isValidDate ? "con1-div1-spacing" : ""}`}>Day</div>
+                        <div className={`con1-div1-1-1 ${!isValidDate || isEmptyDate ? "con1-div1-text" : ""} : ""}`}>Day</div>
                         <div className="con1-div1-1-2">
-                            <input className={`input--1 ${!isValidDate ? "warningDate" : ""}`} type="text" name="day" placeholder="DD" 
+                            <input className={`input--1 ${!isValidDate || isEmptyDate ? "warningDate placeholder" : ""}`} type="text" name="day" placeholder="DD" 
                             onChange={handleDaysChange} />
                         </div>
                         <div className={`con1-div1-1-3 ${!isValidDate ? "warning" : ""}`}>
                             Must be a valid day
                         </div>
-                        <div className={`con1-div1-1-4 ${!required ? "empty-fields" : ""}`}>
+                        <div className={`con1-div1-1-4 ${isEmptyDate ? "empty" : ""}`}>
                             This field is empty
                         </div>
                     </div>
 
                     <div className={`con1-div1-2 ${!isValidMonth ? "container-spacing" : ""}`}>
-                        <div className={`con1-div1-2-1 ${!isValidMonth ? "con1-div1-spacing" : ""}`}>Month</div>
+                        <div className={`con1-div1-2-1 ${!isValidMonth || isEmptyMonth ? "con1-div1-text" : ""}`}>Month</div>
                         <div className="con1-div1-2-2">
-                            <input className={`input--2 ${!isValidMonth ? "warningDate" : ""}`} type="text" name="month" placeholder="MM" 
+                            <input className={`input--2 ${!isValidMonth || isEmptyMonth ? "warningDate placeholder" : ""}`} type="text" name="month" placeholder="MM" 
                             onChange={handleMonthChange} />
                         </div>
                         <div className={`con1-div1-1-3 ${!isValidMonth ? "warning" : ""}`}>
                             Must be a valid month
                         </div>
+                        <div className={`con1-div1-1-4 ${isEmptyMonth ? "empty" : ""}`}>
+                            This field is empty
+                        </div>
                     </div>
 
                     <div className={`con1-div1-3 ${!isValidYear ? "container-spacing" : ""}`}>
-                        <div className={`con1-div1-3-1 ${!isValidYear ? "con1-div1-spacing" : ""}`}>Year</div>
+                        <div className={`con1-div1-3-1 ${!isValidYear || isEmptyYear ? "con1-div1-text" : ""}`}>Year</div>
                         <div className="con1-div1-3-2">
-                            <input className={`input--3 ${!isValidYear ? "warningDate" : ""}`} type="text" name="year" placeholder="YYYY" 
+                            <input className={`input--3 ${!isValidYear || isEmptyYear ? "warningDate placeholder" : ""}`} type="text" name="year" placeholder="YYYY" 
                             onChange={handleYearChange} />
                         </div>
                         <div className={`con1-div1-1-3 ${!isValidYear ? "warning" : ""}`}>
                             Must be in the past
+                        </div>
+                        <div className={`con1-div1-1-4 ${isEmptyYear ? "empty" : ""}`}>
+                            This field is empty
                         </div>
                     </div>
 

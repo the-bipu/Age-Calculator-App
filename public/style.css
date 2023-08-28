@@ -164,6 +164,10 @@ body {
     display: block;
 }
 
+.con1-div1-1-4.empty {
+    display: block;
+}
+
 .warningDate {
     border: 1px solid hsl(0, 100%, 67%);
 }
@@ -176,10 +180,11 @@ body {
     margin-bottom: -7.6rem;
 }
 
-.con1-div1-spacing {
+.con1-div1-text {
     color: hsl(0, 100%, 67%);
 }
 
-.con1-div1-1-4.empty-fields {
-    display: block;
+.placeholder::placeholder {
+    font-weight: 600;
+    color: hsl(0, 1%, 44%);
 }

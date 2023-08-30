@@ -99,10 +99,15 @@ body {
     margin-bottom: -7rem;
 }
 
+.con1-div1-4:hover {
+    background-color: hsl(0, 0%, 0%);
+    border: 2px solid hsl(0, 0%, 0%);
+}
+
 .input--1,
 .input--2,
 .input--3 {
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
 
@@ -116,9 +121,16 @@ body {
     outline: none;
 }
 
+.input--1:hover,
+.input--2:hover,
+.input--3:hover {
+    border: 1px solid hsl(259, 100%, 65%);
+}
+
 ::placeholder {
-    font-size: 1rem;
-    font-weight: 400;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: hsl(0, 1%, 44%);
 }
 
 .span-1,
@@ -172,19 +184,23 @@ body {
     border: 1px solid hsl(0, 100%, 67%);
 }
 
+.PH:hover {
+    border: 1px solid hsl(0, 100%, 67%);
+}
+
 .container-spacing {
     margin-bottom: 1.5rem;
 }
 
 .container-4-spacing {
-    margin-bottom: -7.6rem;
+    margin-bottom: 1rem;
 }
 
 .con1-div1-text {
     color: hsl(0, 100%, 67%);
 }
 
-.placeholder::placeholder {
+/* .placeholder::placeholder {
     font-weight: 600;
     color: hsl(0, 1%, 44%);
-}
+} */

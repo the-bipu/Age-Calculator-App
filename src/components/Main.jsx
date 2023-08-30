@@ -3,6 +3,10 @@ import Footer from "./Footer"
 
 const warningString = "Must be a valid date";
 const emptyField = "This field is required";
+  
+function isLeapYear(yearFull) {
+    return (yearFull % 4 === 0 && yearFull % 100 !== 0) || (yearFull % 400 === 0);
+}
 
 function findAge(currentDate, birthDate) {
 
@@ -68,29 +72,63 @@ export default function Main() {
 
     const handleDaysChange = (event) => {
         const dateFull = event.target.value;
-        setDateFull(dateFull);
+        setDateFull(parseInt(dateFull));
 
-        if(dateFull <=0 || dateFull > 31){
+        console.log("Date is : " + dateFull + typeof(dateFull));
+
+        const daysInMonth = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        const selectedMonth = parseInt(monthFull);
+        const selectedDay = parseInt(dateFull);
+
+        if (selectedMonth === 2 && isLeapYear(parseInt(yearFull))) {
+            daysInMonth[2] = 29; // Adjust days for February in a leap year
+        }
+
+        if(selectedDay > 31){
             setIsValidDate(false);
         } else {
-            setIsValidDate(true);
-            setDays(event.target.value);
-            setIsEmptyDate(false);
+            if(selectedDay < 1 || selectedDay > daysInMonth[selectedMonth]){
+                setIsValidDate(false);
+                console.log("Enter the dragon");
+            } else {
+                console.log("Enter the chhota Bheem")
+                setIsValidDate(true);
+                setDays(event.target.value);
+                setIsEmptyDate(false);
+                console.log("Date is : " + dateFull);
+            }
         }
     }
 
     const handleMonthChange = (event) => {
-        const monthFull = event.target.value;
-        setMonthFull(monthFull);
+        const inputDate = parseInt(dateFull);
 
-        if(monthFull <=0 || monthFull > 12){
+        const monthFull = event.target.value;
+        setMonthFull(parseInt(monthFull, 10));
+    
+        if (monthFull <= 0 || monthFull > 12) {
             setIsValidMonth(false);
         } else {
             setIsValidMonth(true);
-            setMonths(event.target.value);
+            setMonths(parseInt(monthFull, 10));
             setIsEmptyMonth(false);
+
+            const inputMonth = parseInt(monthFull);
+            console.log("Month is : " + inputMonth);
+            if (dateFull !== null) {
+                handleDaysChange({ target: { value: inputDate } });
+                console.log("Doremon");
+            }
         }
-    }
+    
+        // Trigger day validation here
+
+        // if (dateFull !== null) {
+        //     handleDaysChange({target : { value: inputDate } });
+        // }
+
+    };    
 
     const handleYearChange = (event) => {
         const yearFull = event.target.value;

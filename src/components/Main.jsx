@@ -74,8 +74,6 @@ export default function Main() {
         const dateFull = event.target.value;
         setDateFull(parseInt(dateFull));
 
-        console.log("Date is : " + dateFull + typeof(dateFull));
-
         const daysInMonth = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
         const selectedMonth = parseInt(monthFull);
@@ -90,13 +88,10 @@ export default function Main() {
         } else {
             if(selectedDay < 1 || selectedDay > daysInMonth[selectedMonth]){
                 setIsValidDate(false);
-                console.log("Enter the dragon");
             } else {
-                console.log("Enter the chhota Bheem")
                 setIsValidDate(true);
                 setDays(event.target.value);
                 setIsEmptyDate(false);
-                console.log("Date is : " + dateFull);
             }
         }
     }
@@ -115,18 +110,15 @@ export default function Main() {
             setIsEmptyMonth(false);
 
             const inputMonth = parseInt(monthFull);
-            console.log("Month is : " + inputMonth);
             if (dateFull !== null) {
                 handleDaysChange({ target: { value: inputDate } });
-                console.log("Doremon");
             }
         }
     
         // Trigger day validation here
-
-        // if (dateFull !== null) {
-        //     handleDaysChange({target : { value: inputDate } });
-        // }
+        if (dateFull !== null) {
+            handleDaysChange({target : { value: inputDate } });
+        }
 
     };    
 

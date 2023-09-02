@@ -211,9 +211,11 @@ export default function Main() {
                             {emptyField}
                         </div>
                     </div>
+                </div>
 
+                <div className="con1-middle">
                     <div type="submit" className={`con1-div1-4 ${!isValidYear ? "container-4-spacing" : ""}`} 
-                    onClick={handleClick}>
+                        onClick={handleClick}>
                         
                     </div>
                 </div>

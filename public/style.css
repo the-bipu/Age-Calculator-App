@@ -7,7 +7,9 @@
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
-    height: 100vh;
+    /* height: 100vh; */
+    height: 960px;
+    width: 1440px;
 
     display: grid;
     place-content: center;
@@ -31,7 +33,8 @@ body {
     align-items: flex-start;
     justify-content: center;
 
-    width: auto;
+    max-width: 840px;
+    max-height: 650px;
 
     background: hsl(0, 10%, 100%);
 
@@ -40,7 +43,8 @@ body {
 }
 
 .con1-div1 {
-    width: auto;
+    width: 840px;
+    height: 157px;
 
     display: flex;
     flex-direction: row;
@@ -51,15 +55,16 @@ body {
     gap: 1.7rem;
 
     border: none;
-    border-bottom: 1px solid hsl(0, 0%, 86%);
+    /* border-bottom: 1px solid hsl(0, 0%, 86%); */
 
-    margin: 2rem;
-    margin-right: 3rem;
-    margin-bottom: 1rem;
+    padding: 60px 56px 0 56px;
 }
 
 .con1-div2 {
-    font-size: 5rem;
+    min-height: 445px;
+    min-width: 840px;
+
+    font-size: 6rem;
     font-weight: 800;
     font-style: italic;
 
@@ -69,8 +74,7 @@ body {
     align-items: flex-start;
     justify-content: flex-start;
 
-    margin-left: 2rem;
-    margin-bottom: 2rem;
+    padding: 60px 56px 0 56px;
 }
 
 .con1-div1-1,
@@ -81,7 +85,7 @@ body {
     align-items: flex-start;
     justify-content: center;
 
-    margin-bottom: 2.3rem;
+    /* margin-bottom: 2.3rem; */
 }
 
 .con1-div1-4 {
@@ -107,18 +111,20 @@ body {
 .input--1,
 .input--2,
 .input--3 {
-    font-size: 1.3rem;
+    font-size: 2rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
 
-    width: 7.5rem;
-    height: 3.4rem;
+    width: 157px;
+    height: 70px;
 
     border-radius: 4px;
     border: 1px solid hsl(0, 0%, 86%);
 
     padding: 1rem;
     outline: none;
+
+    margin-bottom: 46px;
 }
 
 .input--1:hover,
@@ -128,7 +134,7 @@ body {
 }
 
 ::placeholder {
-    font-size: 1.3rem;
+    font-size: 2rem;
     font-weight: 700;
     color: hsl(0, 1%, 44%);
 }
@@ -142,7 +148,7 @@ body {
 .con1-div1-1-1,
 .con1-div1-2-1,
 .con1-div1-3-1 {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -175,7 +181,10 @@ body {
 .con1-div2-1-1,
 .con1-div2-2-1,
 .con1-div2-3-1 {
-    line-height: 7rem;
+    height: 6.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .con1-div1-1-3.warning {

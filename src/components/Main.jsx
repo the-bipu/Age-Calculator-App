@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import Footer from "./Footer"
 
 const warningString = "Must be a valid date";
@@ -45,9 +45,9 @@ export default function Main() {
     const [isEmptyYear, setIsEmptyYear] = React.useState(false);
 
     // State for input values
-    const [days, setDays] = React.useState('--');
-    const [months, setMonths] = React.useState('--');
-    const [years, setYears] = React.useState('--');
+    const [days, setDays] = React.useState('- -');
+    const [months, setMonths] = React.useState('- -');
+    const [years, setYears] = React.useState('- -');
 
     const [newDays, setNewDays] = React.useState(days);
     const [newMonths, setNewMonths] = React.useState(months);
@@ -61,6 +61,7 @@ export default function Main() {
 
     console.log(currentDay + " " + currentMonth + " " + currentYear);
 
+    // For checking the input is valid or not
     const [dateFull, setDateFull] = React.useState("");
     const [isValidDate, setIsValidDate] = React.useState(true);
 
@@ -70,13 +71,13 @@ export default function Main() {
     const [yearFull, setYearFull] = React.useState("");
     const [isValidYear, setIsValidYear] = React.useState(true);
 
-    const handleDaysChange = (event) => {
+    
+    const handleDaysChange = (event, selectedMonth) => {
         const dateFull = event.target.value;
         setDateFull(parseInt(dateFull));
 
         const daysInMonth = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-        const selectedMonth = parseInt(monthFull);
         const selectedDay = parseInt(dateFull);
 
         if (selectedMonth === 2 && isLeapYear(parseInt(yearFull))) {
@@ -86,11 +87,12 @@ export default function Main() {
         if(selectedDay > 31){
             setIsValidDate(false);
         } else {
-            if(selectedDay < 1 || selectedDay > daysInMonth[selectedMonth]){
+            if(selectedDay <= 0 || selectedDay > daysInMonth[selectedMonth]){
                 setIsValidDate(false);
+                console.log(daysInMonth[selectedMonth]);
             } else {
                 setIsValidDate(true);
-                setDays(event.target.value);
+                setDays(parseInt(dateFull));
                 setIsEmptyDate(false);
             }
         }
@@ -100,56 +102,53 @@ export default function Main() {
         const inputDate = parseInt(dateFull);
 
         const monthFull = event.target.value;
-        setMonthFull(parseInt(monthFull, 10));
+        setMonthFull(parseInt(monthFull));
+
+        console.log(parseInt(monthFull));
     
         if (monthFull <= 0 || monthFull > 12) {
             setIsValidMonth(false);
         } else {
             setIsValidMonth(true);
-            setMonths(parseInt(monthFull, 10));
+            setMonths(parseInt(monthFull));
             setIsEmptyMonth(false);
 
-            const inputMonth = parseInt(monthFull);
+            // Trigger day validation here
             if (dateFull !== null) {
-                handleDaysChange({ target: { value: inputDate } });
+                handleDaysChange({target : { value: inputDate } }, parseInt(monthFull));
             }
-        }
-    
-        // Trigger day validation here
-        if (dateFull !== null) {
-            handleDaysChange({target : { value: inputDate } });
         }
 
     };    
 
     const handleYearChange = (event) => {
         const yearFull = event.target.value;
-        setYearFull(yearFull);
+        setYearFull(parseInt(yearFull));
 
         if(yearFull > currentYear){
             setIsValidYear(false);
         } else {
             setIsValidYear(true);
-            setYears(event.target.value);
+            setYears(parseInt(yearFull));
             setIsEmptyYear(false);
         }
     }
 
     const handleClick = () => {
 
-        if(dateFull.trim()===""){
-            setIsEmptyDate(dateFull.trim() === "");
+        if(dateFull===""){
+            setIsEmptyDate(dateFull === "");
         } 
         
-        if (monthFull.trim()===""){
-            setIsEmptyMonth(monthFull.trim() == "");
+        if (monthFull===""){
+            setIsEmptyMonth(monthFull == "");
         } 
         
-        if (yearFull.trim()===""){
-            setIsEmptyYear(yearFull.trim() === "");
+        if (yearFull===""){
+            setIsEmptyYear(yearFull === "");
         } 
         
-        if(dateFull.trim()!="" && monthFull.trim()!="" && yearFull.trim()!=""){
+        if(dateFull!="" && monthFull!="" && yearFull!=""){
             let birthDate = [parseInt(days), parseInt(months), parseInt(years)];
 
             const [calculatedDay, calculatedMonth, calculatedYear] = findAge(

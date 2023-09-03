@@ -214,9 +214,15 @@ export default function Main() {
                 </div>
 
                 <div className="con1-middle">
-                    <div type="submit" className={`con1-div1-4 ${!isValidYear ? "container-4-spacing" : ""}`} 
-                        onClick={handleClick}>
-                        
+                    
+                    <div className="con1-middle-1"></div>
+                    <div className="con1-middle-2"></div>
+
+                    <div className="con1-middle-3">
+                        <div type="submit" className={`submitButton ${!isValidYear ? "container-4-spacing" : ""}`} 
+                            onClick={handleClick}>
+                            
+                        </div>
                     </div>
                 </div>
 

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React from "react"
 import Footer from "./Footer"
 
 const warningString = "Must be a valid date";
@@ -141,14 +141,14 @@ export default function Main() {
         } 
         
         if (monthFull===""){
-            setIsEmptyMonth(monthFull == "");
+            setIsEmptyMonth(monthFull === "");
         } 
         
         if (yearFull===""){
             setIsEmptyYear(yearFull === "");
         } 
         
-        if(dateFull!="" && monthFull!="" && yearFull!=""){
+        if(dateFull!=="" && monthFull!=="" && yearFull!==""){
             let birthDate = [parseInt(days), parseInt(months), parseInt(years)];
 
             const [calculatedDay, calculatedMonth, calculatedYear] = findAge(
@@ -224,6 +224,9 @@ export default function Main() {
                             
                         </div>
                     </div>
+
+                    <div className="con1-middle-4"></div>
+                    <div className="con1-middle-5"></div>
                 </div>
 
                 <div className="con1-div2">

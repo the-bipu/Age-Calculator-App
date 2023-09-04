@@ -415,6 +415,14 @@ body {
         width: 5rem;
     }
 
+    .con1-div1-1-3 {
+        font-size: 0.5rem;
+    }
+    
+    .con1-div1-1-4 {
+        font-size: 0.5rem;
+    }
+
     .submitButton {
         width: 5rem;
         height: 5rem;
@@ -477,14 +485,6 @@ body {
         height: 2.5rem;
         grid-column: 3 / 4;
         grid-row: 2 / 3;
-    }
-
-    .con1-div1-1-3 {
-        font-size: 0.5rem;
-    }
-    
-    .con1-div1-1-4 {
-        font-size: 0.5rem;
     }
 
     .container-spacing {

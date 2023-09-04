@@ -278,25 +278,52 @@ body {
     color: hsl(0, 100%, 67%);
 }
 
-@media(max-width: 1280px) {
+
+/* Media Queries Width: 1250px */
+@media(max-width: 1250px) {
+    .con1-div1 {
+        gap: 1rem;
+        min-height: 180px;
+        margin: 0;
+
+        padding: 50px 27px 0 27px;
+    }
+
+    .con1-div2 {
+        padding: 12px 27px 0 27px;
+    }
+
+    .con1-middle {
+        min-height: 5rem;
+        padding: 0 27px 0 27px;
+    }
+
+    .con1-middle-1 {
+        height: 2.7rem;
+
+    }
+    .con1-middle-2 {
+        height: 2.7rem;
+    }
+
     .con1-middle-3 {
-        height: 5rem;
-        width: 5rem;
+        height: 5.6rem;
+        width: 5.6rem;
     }
 
     .submitButton {
-        width: 5rem;
-        height: 5rem;
-    }
-
-    .con1-div1 {
-        margin-bottom: 1rem;
+        width: 5.6rem;
+        height: 5.6rem;
     }
 }
 
+/* Media Queries Width: 1100px */
 @media(max-width: 1100px){
     .con1-div1 {
         gap: 1rem;
+        min-height: 180px;
+        margin: 0;
+
         padding: 50px 18px 0 18px;
     }
 
@@ -305,10 +332,12 @@ body {
     }
 
     .con1-middle {
+        min-height: 5rem;
         padding: 0 18px 0 18px;
     }
 }
 
+/* Media Queries Width: 980px */
 @media (max-width: 980px) {
     .con1-middle {
         grid-template-columns: 1fr 1fr 1fr;
@@ -317,7 +346,7 @@ body {
     .con1-div2-1-1,
     .con1-div2-2-1,
     .con1-div2-3-1 {
-        font-size: 5rem;
+        font-size: 4.5rem;
     }
 
     .input--1,
@@ -329,33 +358,30 @@ body {
     ::placeholder {
         font-size: 1.5rem;
     }
-
-    .con1-middle-1 {
-        min-width: 30.67vw;
-    }
-
-    .con1-middle-2 {
-        min-width: 30.67vw;
-    }
-
-    .con1-middle-4 {
-        display: block;
-        width: 30.67vw;
-        grid-column: 3 / 4;
-        grid-row: 1 / 2;
-
-        border-bottom: 2px solid hsl(0, 0%, 86%);
-    }
-
-    .con1-middle-5 {
-        display: block;
-        width: 30.67vw;
-        grid-column: 3 / 4;
-        grid-row: 2 / 3;
-    }
 }
 
+/* Media Queries Width: 768px */
 @media (max-width: 768px) {
+    .container {
+        height: 485px;
+    }
+
+    .con1-div1 {
+        min-width: 344px;
+        min-height: 165px;
+        margin: 0;
+    }
+
+    .con1-div2 {
+        min-width: 344px;
+        min-height: 265px;
+    }
+
+    .con1-middle-1, 
+    .con1-middle-2 {
+        height: 2.5rem;
+    }
+
     .input--1,
     .input--2,
     .input--3 {
@@ -367,5 +393,101 @@ body {
 
     ::placeholder {
         font-size: 1.2rem;
+    }
+
+    .con1-div2-1-1,
+    .con1-div2-2-1,
+    .con1-div2-3-1 {
+        font-size: 4rem;
+        height: 4rem;
+    }
+
+    .con1-middle-1 {
+        height: 2.5rem;
+
+    }
+    .con1-middle-2 {
+        height: 2.5rem;
+    }
+
+    .con1-middle-3 {
+        height: 5rem;
+        width: 5rem;
+    }
+
+    .submitButton {
+        width: 5rem;
+        height: 5rem;
+    }
+}
+
+/* Media Queries Width: 680px */
+@media(max-width: 680px){
+    .con1-div2-1-1,
+    .con1-div2-2-1,
+    .con1-div2-3-1 {
+        font-size: 3.2rem;
+    }
+}
+
+/* Media Queries Width: 376px */
+@media (max-width: 376px){
+    .container {
+        height: 485px;
+    }
+
+    .con1-div1 {
+        min-height: 165px;
+        margin: 0;
+    }
+
+    .con1-div2 {
+        min-height: 265px;
+    }
+
+    .con1-div2-1-1,
+    .con1-div2-2-1,
+    .con1-div2-3-1 {
+        height: 4rem;
+    }
+
+    .con1-middle-1 {
+        min-width: 30.67vw;
+        height: 2.5rem;
+    }
+
+    .con1-middle-2 {
+        min-width: 30.67vw;
+        height: 2.5rem;
+    }
+
+    .con1-middle-4 {
+        display: block;
+        min-width: 30.67vw;
+        height: 2.5rem;
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+
+        border-bottom: 2px solid hsl(0, 0%, 86%);
+    }
+
+    .con1-middle-5 {
+        display: block;
+        min-width: 30.67vw;
+        height: 2.5rem;
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+    }
+
+    .con1-div1-1-3 {
+        font-size: 0.5rem;
+    }
+    
+    .con1-div1-1-4 {
+        font-size: 0.5rem;
+    }
+
+    .container-spacing {
+        margin-bottom: 0;
     }
 }

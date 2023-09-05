@@ -84,16 +84,20 @@ export default function Main() {
             daysInMonth[2] = 29; // Adjust days for February in a leap year
         }
 
-        if(selectedDay > 31){
-            setIsValidDate(false);
+        if(isNaN(parseInt(dateFull))){
+            setIsEmptyDate(true);
         } else {
-            if(selectedDay <= 0 || selectedDay > daysInMonth[selectedMonth]){
+            if(selectedDay > 31){
                 setIsValidDate(false);
-                console.log(daysInMonth[selectedMonth]);
             } else {
-                setIsValidDate(true);
-                setDays(parseInt(dateFull));
-                setIsEmptyDate(false);
+                if(selectedDay <= 0 || selectedDay > daysInMonth[selectedMonth]){
+                    setIsValidDate(false);
+                    console.log(daysInMonth[selectedMonth]);
+                } else {
+                    setIsValidDate(true);
+                    setDays(parseInt(dateFull));
+                    setIsEmptyDate(false);
+                }
             }
         }
     }
@@ -103,52 +107,64 @@ export default function Main() {
 
         const monthFull = event.target.value;
         setMonthFull(parseInt(monthFull));
-
-        console.log(parseInt(monthFull));
     
-        if (monthFull <= 0 || monthFull > 12) {
-            setIsValidMonth(false);
+        if(isNaN(parseInt(monthFull))){
+            setIsEmptyMonth(true);
         } else {
-            setIsValidMonth(true);
-            setMonths(parseInt(monthFull));
-            setIsEmptyMonth(false);
-
-            // Trigger day validation here
-            if (dateFull !== null) {
-                handleDaysChange({target : { value: inputDate } }, parseInt(monthFull));
+            if (monthFull <= 0 || monthFull > 12) {
+                setIsValidMonth(false);
+            } else {
+                setIsValidMonth(true);
+                setMonths(parseInt(monthFull));
+                setIsEmptyMonth(false);
+    
+                // Trigger day validation here
+                if (inputDate !== null && !isNaN(inputDate)) {
+                    handleDaysChange({target : { value: parseInt(dateFull) } }, parseInt(monthFull));
+                }
             }
         }
-
     };    
 
     const handleYearChange = (event) => {
         const yearFull = event.target.value;
         setYearFull(parseInt(yearFull));
 
-        if(yearFull > currentYear){
-            setIsValidYear(false);
+        console.log("Year is : " + parseInt(yearFull));
+
+        if(isNaN(parseInt(yearFull))){
+            setIsEmptyYear(true);
         } else {
-            setIsValidYear(true);
-            setYears(parseInt(yearFull));
-            setIsEmptyYear(false);
+            if(yearFull > currentYear){
+                setIsValidYear(false);
+            }
+            else {
+                setIsValidYear(true);
+                setYears(parseInt(yearFull));
+                setIsEmptyYear(false);
+            }
         }
     }
 
     const handleClick = () => {
 
-        if(dateFull===""){
-            setIsEmptyDate(dateFull === "");
+        if(dateFull === ""){
+            setIsEmptyDate(true);
+        }
+
+        if(parseInt(dateFull) === null){
+            setIsEmptyDate(true);
+        }
+        
+        if (monthFull === ""){
+            setIsEmptyMonth(true);
         } 
         
-        if (monthFull===""){
-            setIsEmptyMonth(monthFull === "");
-        } 
-        
-        if (yearFull===""){
-            setIsEmptyYear(yearFull === "");
-        } 
-        
-        if(dateFull!=="" && monthFull!=="" && yearFull!==""){
+        if (yearFull === ""){
+            setIsEmptyYear(true);
+        }
+
+        if(dateFull !== "" && monthFull !== "" && yearFull !== ""){
             let birthDate = [parseInt(days), parseInt(months), parseInt(years)];
 
             const [calculatedDay, calculatedMonth, calculatedYear] = findAge(
@@ -173,8 +189,8 @@ export default function Main() {
                     <div className={`con1-div1-1 ${!isValidDate ? "container-spacing" : ""}`}>
                         <div className={`con1-div1-1-1 ${!isValidDate || isEmptyDate ? "con1-div1-text" : ""} : ""}`}>Day</div>
                         <div className="con1-div1-1-2">
-                            <input className={`input--1 ${!isValidDate || isEmptyDate ? "warningDate PH" : ""}`} type="text" name="day" placeholder="DD" 
-                            onChange={handleDaysChange} />
+                            <input className={`input--1 ${!isValidDate || isEmptyDate ? "warningDate PH" : "Input"}`} type="text" name="day" placeholder="DD" 
+                            onChange={handleDaysChange} autoComplete="off" />
                         </div>
                         <div className={`con1-div1-1-3 ${!isValidDate ? "warning" : ""}`}>
                             {warningString}
@@ -184,11 +200,11 @@ export default function Main() {
                         </div>
                     </div>
 
-                    <div className={`con1-div1-2 ${!isValidMonth ? "container-spacing" : ""}`}>
-                        <div className={`con1-div1-2-1 ${!isValidMonth || isEmptyMonth ? "con1-div1-text" : ""}`}>Month</div>
+                    <div className={`con1-div1-2 ${!isValidDate ? "remain-container-spacing" : ""} ${!isValidMonth ? "container-spacing" : ""}`}>
+                        <div className={`con1-div1-2-1 ${!isValidDate || !isValidMonth || isEmptyMonth ? "con1-div1-text" : ""}`}>Month</div>
                         <div className="con1-div1-2-2">
-                            <input className={`input--2 ${!isValidMonth || isEmptyMonth ? "warningDate PH" : ""}`} type="text" name="month" placeholder="MM" 
-                            onChange={handleMonthChange} />
+                            <input className={`input--2 ${!isValidDate || !isValidMonth || isEmptyMonth ? "warningDate PH" : "Input"}`} type="text" name="month" placeholder="MM" 
+                            onChange={handleMonthChange} autoComplete="off" />
                         </div>
                         <div className={`con1-div1-1-3 ${!isValidMonth ? "warning" : ""}`}>
                             Must be a valid month
@@ -198,11 +214,11 @@ export default function Main() {
                         </div>
                     </div>
 
-                    <div className={`con1-div1-3 ${!isValidYear ? "container-spacing" : ""}`}>
-                        <div className={`con1-div1-3-1 ${!isValidYear || isEmptyYear ? "con1-div1-text" : ""}`}>Year</div>
+                    <div className={`con1-div1-3 ${!isValidDate ? "remain-container-spacing" : ""} ${!isValidYear ? "container-spacing" : ""}`}>
+                        <div className={`con1-div1-3-1 ${!isValidDate || !isValidYear || isEmptyYear ? "con1-div1-text" : ""}`}>Year</div>
                         <div className="con1-div1-3-2">
-                            <input className={`input--3 ${!isValidYear || isEmptyYear ? "warningDate PH" : ""}`} type="text" name="year" placeholder="YYYY" 
-                            onChange={handleYearChange} />
+                            <input className={`input--3 ${!isValidDate || !isValidYear || isEmptyYear ? "warningDate PH" : "Input"}`} type="text" name="year" placeholder="YYYY" 
+                            onChange={handleYearChange} autoComplete="off" />
                         </div>
                         <div className={`con1-div1-1-3 ${!isValidYear ? "warning" : ""}`}>
                             Must be in the past

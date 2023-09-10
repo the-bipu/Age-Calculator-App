@@ -79,7 +79,7 @@ const proudOfThisFunc = () => {
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+Although this project is fully complete as per the given challenges but i want to add some more modules in this like birthday wisher and 100 birthday card. In future project i want to focus on the useState and useEffect from react so that i can be more familiar with these topics.
 
 ### Useful resources
 
